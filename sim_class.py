@@ -154,8 +154,8 @@ class Simulation:
     # method to apply actions to the robots using velocity control
     def apply_actions(self, actions): # actions [[x,y,z,drop], [x,y,z,drop], ...
         for i in range(len(self.robotIds)):
-            p.setJointMotorControl2(self.robotIds[i], 0, p.VELOCITY_CONTROL, targetVelocity=actions[i][0], force=500)
-            p.setJointMotorControl2(self.robotIds[i], 1, p.VELOCITY_CONTROL, targetVelocity=actions[i][1], force=500)
+            p.setJointMotorControl2(self.robotIds[i], 0, p.VELOCITY_CONTROL, targetVelocity=-actions[i][0], force=500)
+            p.setJointMotorControl2(self.robotIds[i], 1, p.VELOCITY_CONTROL, targetVelocity=-actions[i][1], force=500)
             p.setJointMotorControl2(self.robotIds[i], 2, p.VELOCITY_CONTROL, targetVelocity=actions[i][2], force=800)
             if actions[i][3] == 1:
                 self.drop(robotId=self.robotIds[i])
@@ -196,27 +196,45 @@ class Simulation:
 
     # method to get the states of the robots
     def get_states(self):
-        states = []
+        states = {}
         for robotId in self.robotIds:
-            joint_states = p.getJointStates(robotId, [0, 1, 2])
-            #logging.info(f'joint_states: {joint_states}')
-            states.append(list(joint_states))
-            # calculate pipette position
+            raw_joint_states = p.getJointStates(robotId, [0, 1, 2])
+
+            # Convert joint states into a dictionary
+            joint_states = {}
+            for i, joint_state in enumerate(raw_joint_states):
+                joint_states[f'joint_{i}'] = {
+                    'position': joint_state[0],
+                    'velocity': joint_state[1],
+                    'reaction_forces': joint_state[2],
+                    'motor_torque': joint_state[3]
+                }
+
+            # Robot position
             robot_position = p.getBasePositionAndOrientation(robotId)[0]
             robot_position = list(robot_position)
-            joint_states = p.getJointStates(robotId, [0, 1, 2])
-            robot_position[0] -= joint_states[0][0]
-            robot_position[1] -= joint_states[1][0]
-            robot_position[2] += joint_states[2][0]
-            # pipette position
-            pipette_position = [robot_position[0]+self.pipette_offset[0], robot_position[1]+self.pipette_offset[1], robot_position[2]+self.pipette_offset[2]]
-            # round to 4 decimal places
-            pipette_position = [round(pipette_position[0], 4), round(pipette_position[1], 4), round(pipette_position[2], 4)]
-            #logging.info(f'pipette_position: {pipette_position}')
-            states[-1].append(pipette_position)
 
-        #logging.info(f'states: {states}')
+            # Adjust robot position based on joint states
+            robot_position[0] -= raw_joint_states[0][0]
+            robot_position[1] -= raw_joint_states[1][0]
+            robot_position[2] += raw_joint_states[2][0]
+
+            # Pipette position
+            pipette_position = [robot_position[0] + self.pipette_offset[0],
+                                robot_position[1] + self.pipette_offset[1],
+                                robot_position[2] + self.pipette_offset[2]]
+            # Round pipette position to 4 decimal places
+            pipette_position = [round(num, 4) for num in pipette_position]
+
+            # Store information in the dictionary
+            states[f'robotId_{robotId}'] = {
+                "joint_states": joint_states,
+                "robot_position": robot_position,
+                "pipette_position": pipette_position
+            }
+
         return states
+
     
 
 
