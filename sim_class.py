@@ -7,9 +7,13 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 class Simulation:
-    def __init__(self, num_agents):
+    def __init__(self, num_agents, render=True):
+        if render:
+            mode = p.GUI # for graphical version
+        else:
+            mode = p.DIRECT # for non-graphical version
         # Set up the simulation
-        self.physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
+        self.physicsClient = p.connect(mode)
         # Hide the default GUI components
         p.configureDebugVisualizer(p.COV_ENABLE_GUI, 0)
         p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
@@ -29,11 +33,19 @@ class Simulation:
         # add collision shape to the plane
         #p.createCollisionShape(shapeType=p.GEOM_BOX, halfExtents=[30, 305, 0.001])
 
+        # define the pipette offset
+        self.pipette_offset = [0.073, 0.0895, 0.0895]
+        # dictionary to keep track of the current pipette position per robot
+        self.pipette_positions = {}
+
         # Create the robots
         self.create_robots(num_agents)
 
-        # define the pipette offset
-        self.pipette_offset = [0.073, 0.0895, 0.0895]
+        # list of sphere ids
+        self.sphereIds = []
+
+        # dictionary to keep track of the droplet positions on specimens key for specimenId, list of droplet positions
+        self.droplet_positions = {}
     
     # method to create n robots in a grid pattern
     def create_robots(self, num_agents):
@@ -106,16 +118,41 @@ class Simulation:
 
                     agent_count += 1  # Increment the agent counter
 
+                    # calculate the pipette position
+                    pipette_position = self.get_pipette_position(robotId)
+                    # save the pipette position
+                    self.pipette_positions[f'robotId_{robotId}'] = pipette_position
+
+    # method to get the current pipette position for a robot
+    def get_pipette_position(self, robotId):
+        #get the position of the robot
+        robot_position = p.getBasePositionAndOrientation(robotId)[0]
+        robot_position = list(robot_position)
+        joint_states = p.getJointStates(robotId, [0, 1, 2])
+        robot_position[0] -= joint_states[0][0]
+        robot_position[1] -= joint_states[1][0]
+        robot_position[2] += joint_states[2][0]
+        # x,y offset
+        x_offset = self.pipette_offset[0]
+        y_offset = self.pipette_offset[1]
+        z_offset = self.pipette_offset[2]
+        # Calculate the position of the pipette at the tip of the pipette but at the same z coordinate as the specimen
+        pipette_position = [robot_position[0]+x_offset, robot_position[1]+y_offset, robot_position[2]+z_offset]
+        return pipette_position
 
     # method to reset the simulation
     def reset(self, num_agents):
         # Remove the robots
         for robotId in self.robotIds:
             p.removeBody(robotId)
+            # remove the robotId from the list of robotIds
+            self.robotIds.remove(robotId)
 
         # Remove the specimens
         for specimenId in self.specimenIds:
             p.removeBody(specimenId)
+            # remove the specimenId from the list of specimenIds
+            self.specimenIds.remove(specimenId)
 
         # Create the robots
         self.create_robots(num_agents)
@@ -149,6 +186,10 @@ class Simulation:
                 #     #get the position of the link on the z axis
                 #     link_state = p.getLinkState(self.robotIds[i], 0)
                 #     print(f'robot {i} link_state: {link_state}')
+        # check contact for each robot and specimen
+        for specimenId, robotId in zip(self.specimenIds, self.robotIds):
+            #logging.info(f'checking contact for robotId: {robotId}, specimenId: {specimenId}')
+            self.check_contact(robotId, specimenId)
         return self.get_states() 
     
     # method to apply actions to the robots using velocity control
@@ -175,7 +216,7 @@ class Simulation:
         # x,y offset
         x_offset = self.pipette_offset[0]
         y_offset = self.pipette_offset[1]
-        z_offset = self.pipette_offset[2]
+        z_offset = self.pipette_offset[2]-0.0015
         # Get the position of the specimen
         specimen_position = p.getBasePositionAndOrientation(self.specimenIds[0])[0]
         #logging.info(f'droplet_position: {droplet_position}')
@@ -190,6 +231,8 @@ class Simulation:
         droplet_position = [robot_position[0]+x_offset, robot_position[1]+y_offset, robot_position[2]+z_offset]
                             #specimen_position[2] + sphereRadius+0.015/2+0.06]
         p.resetBasePositionAndOrientation(sphereBody, droplet_position, [0, 0, 0, 1])
+        # track the sphere id
+        self.sphereIds.append(sphereBody)
         self.dropped = True
         #TODO: add some randomness to the droplet position proportional to the height of the pipette above the specimen and the velocity of the pipette of the pipette
         return droplet_position
@@ -234,6 +277,90 @@ class Simulation:
             }
 
         return states
+    
+    # method to check contact with the spheres and the specimen and robot, when contact is detected, the sphere is fixed in place and collision is disabled
+    def check_contact(self, robotId, specimenId):
+        for sphereId in self.sphereIds:
+            # Check contact with the specimen
+            contact_points_specimen = p.getContactPoints(sphereId, specimenId)
+            # Check contact with the robot
+            contact_points_robot = p.getContactPoints(sphereId, robotId)
+
+            # If contact with the specimen is detected
+            if contact_points_specimen:
+                #logging.info(f'sphereId: {sphereId}, in contact with specimen: {specimenId}')
+                # Disable collision between the sphere and the specimen
+                p.setCollisionFilterPair(sphereId, specimenId, -1, -1, enableCollision=0)
+                #logging.info(f'sphereId: {sphereId}, collision disabled')
+                # Get current position and orientation of the sphere
+                sphere_position, sphere_orientation = p.getBasePositionAndOrientation(sphereId)
+                # Fix the sphere in place relative to the world
+                p.createConstraint(parentBodyUniqueId=sphereId,
+                                    parentLinkIndex=-1,
+                                    childBodyUniqueId=-1,
+                                    childLinkIndex=-1,
+                                    jointType=p.JOINT_FIXED,
+                                    jointAxis=[0, 0, 0],
+                                    parentFramePosition=[0, 0, 0],
+                                    childFramePosition=sphere_position,
+                                    childFrameOrientation=sphere_orientation)
+                # track the final position of the sphere on the specimen by adding it to the dictionary
+                if f'specimenId_{specimenId}' in self.droplet_positions:
+                    self.droplet_positions[f'specimenId_{specimenId}'].append(sphere_position)
+                else:
+                    self.droplet_positions[f'specimenId_{specimenId}'] = [sphere_position]
+
+                #logging.info(f'sphereId: {sphereId}, fixed in place')
+
+                # # turn off all collisions with other spheres that are in contact with this sphere
+                # for sphereId2 in self.sphereIds:
+                #     if sphereId2 != sphereId:
+                #         contact_points = p.getContactPoints(sphereId, sphereId2)
+                #         if contact_points:
+                #             p.setCollisionFilterPair(sphereId, sphereId2, -1, -1, enableCollision=0)
+                #             logging.info(f'sphereId: {sphereId}, collision disabled with sphereId2: {sphereId2}')
+
+            # If contact with the robot is detected
+            if contact_points_robot:
+                # Destroy the sphere
+                p.removeBody(sphereId)
+                #logging.info(f'sphereId: {sphereId}, removed')
+                # Remove the sphereId from the list of sphereIds
+                self.sphereIds.remove(sphereId)
+                # Disable collision between the sphere and the robot
+                # p.setCollisionFilterPair(sphereId, robotId, -1, -1, enableCollision=0)
+                # Get current position and orientation of the sphere
+                # sphere_position, sphere_orientation = p.getBasePositionAndOrientation(sphereId)
+                # sphere_position = list(sphere_position)
+                # sphere_position[2] += 0.001
+                # # Fix the sphere in place relative to the world
+                # p.createConstraint(parentBodyUniqueId=sphereId,
+                #                     parentLinkIndex=-1,
+                #                     childBodyUniqueId=-1,
+                #                     childLinkIndex=-1,
+                #                     jointType=p.JOINT_FIXED,
+                #                     jointAxis=[0, 0, 0],
+                #                     parentFramePosition=[0, 0, 0],
+                #                     childFramePosition=sphere_position,
+                #                     childFrameOrientation=sphere_orientation)
+                                # turn off all collisions with other spheres that are in contact with this sphere
+                # for sphereId2 in self.sphereIds:
+                #     if sphereId2 != sphereId:
+                #         contact_points = p.getContactPoints(sphereId, sphereId2)
+                #         if contact_points:
+                #             p.setCollisionFilterPair(sphereId, sphereId2, -1, -1, enableCollision=0)
+                #             logging.info(f'sphereId: {sphereId}, collision disabled with sphereId2: {sphereId2}')
+    
+    # close the simulation
+    def close(self):
+        p.disconnect()
+
+
+
+
+
+
+
 
     
 
