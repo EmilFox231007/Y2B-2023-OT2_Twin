@@ -4,10 +4,11 @@ import pybullet_data
 import math
 import logging
 
-logging.basicConfig(level=logging.INFO)
+#logging.basicConfig(level=logging.INFO)
 
 class Simulation:
     def __init__(self, num_agents, render=True):
+        self.render = render
         if render:
             mode = p.GUI # for graphical version
         else:
@@ -141,7 +142,7 @@ class Simulation:
         return pipette_position
 
     # method to reset the simulation
-    def reset(self, num_agents):
+    def reset(self, num_agents=1):
         # Remove the robots
         for robotId in self.robotIds:
             p.removeBody(robotId)
@@ -157,6 +158,8 @@ class Simulation:
         # Create the robots
         self.create_robots(num_agents)
 
+        return self.get_states()
+
     # method to run the simulation for a specified number of steps
     def run(self, actions, num_steps=1):
         #self.apply_actions(actions)
@@ -165,7 +168,6 @@ class Simulation:
         for i in range(num_steps):
             self.apply_actions(actions)
             p.stepSimulation()
-            time.sleep(1./240.)
 
             # reset the droplet after 20 steps
             # if self.dropped:
@@ -186,10 +188,14 @@ class Simulation:
                 #     #get the position of the link on the z axis
                 #     link_state = p.getLinkState(self.robotIds[i], 0)
                 #     print(f'robot {i} link_state: {link_state}')
-        # check contact for each robot and specimen
-        for specimenId, robotId in zip(self.specimenIds, self.robotIds):
-            #logging.info(f'checking contact for robotId: {robotId}, specimenId: {specimenId}')
-            self.check_contact(robotId, specimenId)
+            # check contact for each robot and specimen
+            for specimenId, robotId in zip(self.specimenIds, self.robotIds):
+                #logging.info(f'checking contact for robotId: {robotId}, specimenId: {specimenId}')
+                self.check_contact(robotId, specimenId)
+
+            if self.render:
+                time.sleep(1./240.) # slow down the simulation
+
         return self.get_states() 
     
     # method to apply actions to the robots using velocity control
@@ -350,6 +356,27 @@ class Simulation:
                 #         if contact_points:
                 #             p.setCollisionFilterPair(sphereId, sphereId2, -1, -1, enableCollision=0)
                 #             logging.info(f'sphereId: {sphereId}, collision disabled with sphereId2: {sphereId2}')
+
+    def set_start_position(self, x, y, z):
+        # Iterate through each robot and set its pipette to the start position
+        for robotId in self.robotIds:
+            # Calculate the necessary joint positions to reach the desired start position
+            # The calculation depends on the kinematic model of the robot
+            # For simplicity, let's assume a simple model where each joint moves in one axis (x, y, z)
+            # You might need to adjust this based on the actual robot kinematics
+
+            # Adjust the x, y, z values based on the robot's current position and pipette offset
+            robot_position = p.getBasePositionAndOrientation(robotId)[0]
+            adjusted_x = x - robot_position[0] - self.pipette_offset[0]
+            adjusted_y = y - robot_position[1] - self.pipette_offset[1]
+            adjusted_z = z - robot_position[2] - self.pipette_offset[2]
+
+            # Reset the joint positions/start position
+            p.resetJointState(robotId, 0, targetValue=adjusted_x)
+            p.resetJointState(robotId, 1, targetValue=adjusted_y)
+            p.resetJointState(robotId, 2, targetValue=adjusted_z)
+
+
     
     # close the simulation
     def close(self):
