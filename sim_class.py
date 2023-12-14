@@ -7,8 +7,9 @@ import logging
 #logging.basicConfig(level=logging.INFO)
 
 class Simulation:
-    def __init__(self, num_agents, render=True):
+    def __init__(self, num_agents, render=True, rgb_array=False):
         self.render = render
+        self.rgb_array = rgb_array
         if render:
             mode = p.GUI # for graphical version
         else:
@@ -47,6 +48,20 @@ class Simulation:
 
         # dictionary to keep track of the droplet positions on specimens key for specimenId, list of droplet positions
         self.droplet_positions = {}
+
+        # Function to compute view matrix based on these parameters
+        def compute_camera_view(cameraDistance, cameraYaw, cameraPitch, cameraTargetPosition):
+            camUpVector = (0, 0, 1)  # Up vector in Z-direction
+            camForward = (1, 0, 0)  # Forward vector in X-direction
+            camTargetPos = cameraTargetPosition
+            camPos = p.multiplyTransforms(camTargetPos, p.getQuaternionFromEuler((0, 0, 0)), (0, 0, cameraDistance), p.getQuaternionFromEuler((cameraPitch, 0, cameraYaw)))[0]
+            viewMatrix = p.computeViewMatrix(camPos, camTargetPos, camUpVector)
+            return viewMatrix
+        
+        # Capture the image
+        self.view_matrix = compute_camera_view(cameraDistance, cameraYaw, cameraPitch, cameraTargetPosition)
+        self.projection_matrix = p.computeProjectionMatrixFOV(fov=60, aspect=640/480, nearVal=0.1, farVal=100)
+
     
     # method to create n robots in a grid pattern
     def create_robots(self, num_agents):
@@ -193,10 +208,24 @@ class Simulation:
                 #logging.info(f'checking contact for robotId: {robotId}, specimenId: {specimenId}')
                 self.check_contact(robotId, specimenId)
 
+            if self.rgb_array:
+                # Camera parameters
+                camera_pos = [1, 0, 1] # Example position
+                camera_target = [-0.3, 0, 0] # Point where the camera is looking at
+                up_vector = [0, 0, 1] # Usually the Z-axis is up
+                fov = 50 # Field of view
+                aspect = 320/240 # Aspect ratio (width/height)
+
+                # Get camera image
+                width, height, rgbImg, depthImg, segImg = p.getCameraImage(width=320, height=240, viewMatrix=p.computeViewMatrix(camera_pos, camera_target, up_vector), projectionMatrix=p.computeProjectionMatrixFOV(fov, aspect, 0.1, 100.0))
+                
+                self.current_frame = rgbImg  # RGB array
+                #print(self.current_frame)
+
             if self.render:
                 time.sleep(1./240.) # slow down the simulation
 
-        return self.get_states() 
+        return self.get_states()
     
     # method to apply actions to the robots using velocity control
     def apply_actions(self, actions): # actions [[x,y,z,drop], [x,y,z,drop], ...
@@ -381,15 +410,3 @@ class Simulation:
     # close the simulation
     def close(self):
         p.disconnect()
-
-
-
-
-
-
-
-
-    
-
-
-
