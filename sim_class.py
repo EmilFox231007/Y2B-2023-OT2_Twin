@@ -48,6 +48,7 @@ class Simulation:
 
         # dictionary to keep track of the droplet positions on specimens key for specimenId, list of droplet positions
         self.droplet_positions = {}
+        self.textureId = p.loadTexture("uvmapped_dish_large_comp.png")
 
         # Function to compute view matrix based on these parameters
         # def compute_camera_view(cameraDistance, cameraYaw, cameraPitch, cameraTargetPosition):
@@ -125,8 +126,8 @@ class Simulation:
                                     childFramePosition=spec_position,
                                     childFrameOrientation=spec_orientation)
                     # Load your texture and apply it to the plane
-                    textureId = p.loadTexture("uvmapped_dish_large_comp.png")
-                    p.changeVisualShape(planeId, -1, textureUniqueId=textureId)
+                    #textureId = p.loadTexture("uvmapped_dish_large_comp.png")
+                    p.changeVisualShape(planeId, -1, textureUniqueId=self.textureId)
 
                     self.robotIds.append(robotId)
                     self.specimenIds.append(planeId)
@@ -157,6 +158,10 @@ class Simulation:
 
     # method to reset the simulation
     def reset(self, num_agents=1):
+        # Remove the textures from the specimens
+        for specimenId in self.specimenIds:
+            p.changeVisualShape(specimenId, -1, textureUniqueId=-1)
+
         # Remove the robots
         for robotId in self.robotIds:
             p.removeBody(robotId)
