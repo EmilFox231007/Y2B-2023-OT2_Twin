@@ -50,19 +50,18 @@ class Simulation:
         self.droplet_positions = {}
 
         # Function to compute view matrix based on these parameters
-        def compute_camera_view(cameraDistance, cameraYaw, cameraPitch, cameraTargetPosition):
-            camUpVector = (0, 0, 1)  # Up vector in Z-direction
-            camForward = (1, 0, 0)  # Forward vector in X-direction
-            camTargetPos = cameraTargetPosition
-            camPos = p.multiplyTransforms(camTargetPos, p.getQuaternionFromEuler((0, 0, 0)), (0, 0, cameraDistance), p.getQuaternionFromEuler((cameraPitch, 0, cameraYaw)))[0]
-            viewMatrix = p.computeViewMatrix(camPos, camTargetPos, camUpVector)
-            return viewMatrix
+        # def compute_camera_view(cameraDistance, cameraYaw, cameraPitch, cameraTargetPosition):
+        #     camUpVector = (0, 0, 1)  # Up vector in Z-direction
+        #     camForward = (1, 0, 0)  # Forward vector in X-direction
+        #     camTargetPos = cameraTargetPosition
+        #     camPos = p.multiplyTransforms(camTargetPos, p.getQuaternionFromEuler((0, 0, 0)), (0, 0, cameraDistance), p.getQuaternionFromEuler((cameraPitch, 0, cameraYaw)))[0]
+        #     viewMatrix = p.computeViewMatrix(camPos, camTargetPos, camUpVector)
+        #     return viewMatrix
         
         # Capture the image
-        self.view_matrix = compute_camera_view(cameraDistance, cameraYaw, cameraPitch, cameraTargetPosition)
-        self.projection_matrix = p.computeProjectionMatrixFOV(fov=60, aspect=640/480, nearVal=0.1, farVal=100)
+        #self.view_matrix = compute_camera_view(cameraDistance, cameraYaw, cameraPitch, cameraTargetPosition)
+        #.projection_matrix = p.computeProjectionMatrixFOV(fov=60, aspect=640/480, nearVal=0.1, farVal=100)
 
-    
     # method to create n robots in a grid pattern
     def create_robots(self, num_agents):
         spacing = 1  # Adjust the spacing as needed
@@ -169,6 +168,19 @@ class Simulation:
             p.removeBody(specimenId)
             # remove the specimenId from the list of specimenIds
             self.specimenIds.remove(specimenId)
+
+        # Remove the spheres
+        for sphereId in self.sphereIds:
+            p.removeBody(sphereId)
+            # remove the sphereId from the list of sphereIds
+            self.sphereIds.remove(sphereId)
+
+        # dictionary to keep track of the current pipette position per robot
+        self.pipette_positions = {}
+        # list of sphere ids
+        self.sphereIds = []
+        # dictionary to keep track of the droplet positions on specimens key for specimenId, list of droplet positions
+        self.droplet_positions = {}
 
         # Create the robots
         self.create_robots(num_agents)
@@ -404,8 +416,6 @@ class Simulation:
             p.resetJointState(robotId, 0, targetValue=adjusted_x)
             p.resetJointState(robotId, 1, targetValue=adjusted_y)
             p.resetJointState(robotId, 2, targetValue=adjusted_z)
-
-
     
     # close the simulation
     def close(self):
