@@ -21,6 +21,8 @@ class Simulation:
         p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
         p.setGravity(0,0,-10)
         #p.setPhysicsEngineParameter(contactBreakingThreshold=0.000001)
+        self.textureId = p.loadTexture("uvmapped_dish_large_comp.png")
+        #print(f'textureId: {self.textureId}')
 
         # Set the camera parameters
         cameraDistance = 1.1*(math.ceil((num_agents)**0.3)) # Distance from the target (zoom)
@@ -48,7 +50,6 @@ class Simulation:
 
         # dictionary to keep track of the droplet positions on specimens key for specimenId, list of droplet positions
         self.droplet_positions = {}
-        self.textureId = p.loadTexture("uvmapped_dish_large_comp.png")
 
         # Function to compute view matrix based on these parameters
         # def compute_camera_view(cameraDistance, cameraYaw, cameraPitch, cameraTargetPosition):
@@ -421,7 +422,23 @@ class Simulation:
             p.resetJointState(robotId, 0, targetValue=adjusted_x)
             p.resetJointState(robotId, 1, targetValue=adjusted_y)
             p.resetJointState(robotId, 2, targetValue=adjusted_z)
+
+
     
     # close the simulation
     def close(self):
         p.disconnect()
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
