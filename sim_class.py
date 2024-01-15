@@ -3,6 +3,8 @@ import time
 import pybullet_data
 import math
 import logging
+import os
+import random
 
 #logging.basicConfig(level=logging.INFO)
 
@@ -21,7 +23,12 @@ class Simulation:
         p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
         p.setGravity(0,0,-10)
         #p.setPhysicsEngineParameter(contactBreakingThreshold=0.000001)
-        self.textureId = p.loadTexture("uvmapped_dish_large_comp.png")
+        # load a texture
+        texture_list = os.listdir("textures")
+        random_texture = random.choice(texture_list[:-1])
+        random_texture_index = texture_list.index(random_texture)
+        self.plate_image_path = f'textures/_plates/{os.listdir("textures/_plates")[random_texture_index]}'
+        self.textureId = p.loadTexture(f'textures/{random_texture}')
         #print(f'textureId: {self.textureId}')
 
         # Set the camera parameters
@@ -423,7 +430,9 @@ class Simulation:
             p.resetJointState(robotId, 1, targetValue=adjusted_y)
             p.resetJointState(robotId, 2, targetValue=adjusted_z)
 
-
+    # function to return the path of the current plate image
+    def get_plate_image(self):
+        return self.plate_image_path
     
     # close the simulation
     def close(self):
