@@ -104,7 +104,7 @@ class Simulation:
                     #p.createConstraint(self.baseplaneId, -1, robotId, -1, p.JOINT_FIXED, [0, 0, 0], position, [0, 0, 0])
 
                     # Load the specimen with an offset
-                    offset = [0.18275, 0.163, 0.057]
+                    offset = [0.18275-0.00005, 0.163-0.026, 0.057]
                     position_with_offset = [position[0] + offset[0], position[1] + offset[1], position[2] + offset[2]]
                     rotate_90 = p.getQuaternionFromEuler([0, 0, -math.pi/2])
                     planeId = p.loadURDF("custom.urdf", position_with_offset, rotate_90)#start_orientation)
