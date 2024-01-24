@@ -1,0 +1,121 @@
+Using cpu device
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+Logging to runs/p4oc3crj\PPO_1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 1.5e+03  |
+|    ep_rew_mean     | 9.8      |
+| time/              |          |
+|    fps             | 63       |
+|    iterations      | 1        |
+|    time_elapsed    | 128      |
+|    total_timesteps | 8192     |
+---------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "c:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\ot2_sb3.py", line 29, in <module>
+    model.learn(total_timesteps=2500000, progress_bar=True, callback=wandb_callback)
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\stable_baselines3\ppo\ppo.py", line 315, in learn
+    return super().learn(
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\stable_baselines3\common\on_policy_algorithm.py", line 277, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\stable_baselines3\common\on_policy_algorithm.py", line 200, in collect_rollouts
+    if not callback.on_step():
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\stable_baselines3\common\callbacks.py", line 114, in on_step
+    return self._on_step()
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\stable_baselines3\common\callbacks.py", line 219, in _on_step
+    continue_training = callback.on_step() and continue_training
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\stable_baselines3\common\callbacks.py", line 114, in on_step
+    return self._on_step()
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\wandb\integration\sb3\sb3.py", line 142, in _on_step
+    self.save_model()
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\wandb\integration\sb3\sb3.py", line 151, in save_model
+    wandb.save(self.path, base_path=self.model_save_path)
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\wandb\sdk\wandb_run.py", line 371, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\wandb\sdk\wandb_run.py", line 361, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\wandb\sdk\wandb_run.py", line 1852, in save
+    return self._save(glob_str, base_path, policy)
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\wandb\sdk\wandb_run.py", line 1906, in _save
+    os.symlink(abs_path, wandb_path)
+OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\deanv\\Dropbox\\0_Buas\\2023-2024\\y2B\\OT2_Twin\\models\\p4oc3crj\\model.zip' -> 'C:\\Users\\deanv\\Dropbox\\0_Buas\\2023-2024\\y2B\\OT2_Twin\\wandb\\run-20231212_071533-p4oc3crj\\files\\model.zip'
+[35m   0%[39m [38m╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m [32m9,995/2,500,000 [39m [ [33m0:02:40[39m < [36m10:48:26[39m , [31m64 it/s[39m ]

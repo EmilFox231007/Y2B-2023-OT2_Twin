@@ -1,0 +1,363 @@
+2023-12-12 07:15:33,984 INFO    StreamThr :19452 [internal.py:wandb_internal():86] W&B internal server running at pid: 19452, started at: 2023-12-12 07:15:33.983656
+2023-12-12 07:15:33,985 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status
+2023-12-12 07:15:33,988 INFO    WriterThread:19452 [datastore.py:open_for_write():85] open: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\run-p4oc3crj.wandb
+2023-12-12 07:15:33,989 DEBUG   SenderThread:19452 [sender.py:send():382] send: header
+2023-12-12 07:15:34,156 DEBUG   SenderThread:19452 [sender.py:send():382] send: run
+2023-12-12 07:15:34,678 INFO    SenderThread:19452 [dir_watcher.py:__init__():211] watching files in: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files
+2023-12-12 07:15:34,678 INFO    SenderThread:19452 [sender.py:_start_run_threads():1136] run started: p4oc3crj with start time 1702361733.985655
+2023-12-12 07:15:34,682 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: check_version
+2023-12-12 07:15:34,683 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: check_version
+2023-12-12 07:15:34,829 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: run_start
+2023-12-12 07:15:34,872 DEBUG   HandlerThread:19452 [system_info.py:__init__():32] System info init
+2023-12-12 07:15:34,872 DEBUG   HandlerThread:19452 [system_info.py:__init__():47] System info init done
+2023-12-12 07:15:34,872 INFO    HandlerThread:19452 [system_monitor.py:start():194] Starting system monitor
+2023-12-12 07:15:34,872 INFO    SystemMonitor:19452 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-12-12 07:15:34,872 INFO    HandlerThread:19452 [system_monitor.py:probe():214] Collecting system info
+2023-12-12 07:15:34,881 INFO    SystemMonitor:19452 [interfaces.py:start():190] Started cpu monitoring
+2023-12-12 07:15:34,882 INFO    SystemMonitor:19452 [interfaces.py:start():190] Started disk monitoring
+2023-12-12 07:15:34,882 INFO    SystemMonitor:19452 [interfaces.py:start():190] Started gpu monitoring
+2023-12-12 07:15:34,883 INFO    SystemMonitor:19452 [interfaces.py:start():190] Started memory monitoring
+2023-12-12 07:15:34,898 INFO    SystemMonitor:19452 [interfaces.py:start():190] Started network monitoring
+2023-12-12 07:15:34,899 DEBUG   HandlerThread:19452 [system_info.py:probe():196] Probing system
+2023-12-12 07:15:34,900 DEBUG   HandlerThread:19452 [system_info.py:_probe_git():181] Probing git
+2023-12-12 07:15:35,216 DEBUG   HandlerThread:19452 [system_info.py:_probe_git():189] Probing git done
+2023-12-12 07:15:35,216 DEBUG   HandlerThread:19452 [system_info.py:probe():244] Probing system done
+2023-12-12 07:15:35,216 DEBUG   HandlerThread:19452 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.10.13', 'heartbeatAt': '2023-12-12T06:15:34.899282', 'startedAt': '2023-12-12T06:15:33.976144', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'c:\\Users\\deanv\\Dropbox\\0_Buas\\2023-2024\\y2B\\OT2_Twin\\ot2_sb3.py', 'codePathLocal': 'ot2_sb3.py', 'codePath': 'ot2_sb3.py', 'git': {'remote': 'https://github.com/Deanis/OT2_Twin.git', 'commit': '4cda32dbe471abf2947faf2d775c2aac9fa38bd0'}, 'email': '53308143+Deanis@users.noreply.github.com', 'root': 'C:/Users/deanv/Dropbox/0_Buas/2023-2024/y2B/OT2_Twin', 'host': 'Dean-Omen', 'username': 'deanv', 'executable': 'C:\\ProgramData\\anaconda3\\envs\\y2b\\python.exe', 'cpu_count': 16, 'cpu_count_logical': 24, 'cpu_freq': {'current': 2100.0, 'min': 0.0, 'max': 2100.0}, 'cpu_freq_per_core': [{'current': 2100.0, 'min': 0.0, 'max': 2100.0}], 'disk': {'/': {'total': 952.9697227478027, 'used': 835.7636947631836}}, 'gpu': 'NVIDIA GeForce RTX 4070 Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4070 Laptop GPU', 'memory_total': 8585740288}], 'memory': {'total': 31.70067596435547}}
+2023-12-12 07:15:35,216 INFO    HandlerThread:19452 [system_monitor.py:probe():224] Finished collecting system info
+2023-12-12 07:15:35,216 INFO    HandlerThread:19452 [system_monitor.py:probe():227] Publishing system info
+2023-12-12 07:15:35,216 DEBUG   HandlerThread:19452 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-12-12 07:15:35,217 DEBUG   HandlerThread:19452 [system_info.py:_save_pip():68] Saving pip packages done
+2023-12-12 07:15:35,217 DEBUG   HandlerThread:19452 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-12-12 07:15:35,220 ERROR   HandlerThread:19452 [system_info.py:_save_conda():86] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\deanv\AppData\Roaming\Python\Python310\site-packages\wandb\sdk\internal\system\system_info.py", line 82, in _save_conda
+    subprocess.call(
+  File "C:\ProgramData\anaconda3\envs\y2b\lib\subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\ProgramData\anaconda3\envs\y2b\lib\subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\ProgramData\anaconda3\envs\y2b\lib\subprocess.py", line 1456, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2023-12-12 07:15:35,223 DEBUG   HandlerThread:19452 [system_info.py:_save_conda():87] Saving conda packages done
+2023-12-12 07:15:35,224 INFO    HandlerThread:19452 [system_monitor.py:probe():229] Finished publishing system info
+2023-12-12 07:15:35,232 DEBUG   SenderThread:19452 [sender.py:send():382] send: files
+2023-12-12 07:15:35,232 INFO    SenderThread:19452 [sender.py:_save_file():1392] saving file wandb-metadata.json with policy now
+2023-12-12 07:15:35,237 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:15:35,237 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:15:35,239 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:15:35,451 DEBUG   SenderThread:19452 [sender.py:send():382] send: telemetry
+2023-12-12 07:15:35,451 DEBUG   SenderThread:19452 [sender.py:send():382] send: telemetry
+2023-12-12 07:15:35,692 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:35,693 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\wandb-metadata.json
+2023-12-12 07:15:35,693 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\requirements.txt
+2023-12-12 07:15:35,693 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\conda-environment.yaml
+2023-12-12 07:15:35,783 INFO    HandlerThread:19452 [handler.py:handle_tbrecord():764] handling tbrecord: tbrecord {
+  log_dir: "runs/p4oc3crj\\PPO_1"
+  save: true
+}
+control {
+  relay_id: "7312b72fea974b74a940f6cd92eae0c0"
+}
+_info {
+  stream_id: "p4oc3crj"
+}
+
+2023-12-12 07:15:35,784 DEBUG   HandlerThread:19452 [config_util.py:dict_from_config_file():101] no default config file found in config-defaults.yaml
+2023-12-12 07:15:35,858 INFO    wandb-upload_0:19452 [upload_job.py:push():131] Uploaded file C:\Users\deanv\AppData\Local\Temp\tmp0j_w7pf8wandb\ftkbba7o-wandb-metadata.json
+2023-12-12 07:15:35,869 DEBUG   SenderThread:19452 [sender.py:send():382] send: tbrecord
+2023-12-12 07:15:35,870 DEBUG   SenderThread:19452 [sender.py:send():382] send: config
+2023-12-12 07:15:37,541 DEBUG   Thread-22 (_thread_except_body):19452 [tb_watcher.py:_process_events():284] Encountered tensorboard directory watcher error: [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\deanv\\Dropbox\\0_Buas\\2023-2024\\y2B\\OT2_Twin\\runs\\p4oc3crj\\PPO_1\\events.out.tfevents.1702361735.Dean-Omen.33068.0' -> 'C:\\Users\\deanv\\Dropbox\\0_Buas\\2023-2024\\y2B\\OT2_Twin\\wandb\\run-20231212_071533-p4oc3crj\\files\\events.out.tfevents.1702361735.Dean-Omen.33068.0'
+2023-12-12 07:15:37,697 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:39,074 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:15:39,724 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:41,750 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:43,778 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:44,096 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:15:45,785 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:47,809 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:49,120 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:15:49,821 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:50,238 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:15:50,239 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:15:50,254 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:15:51,841 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:53,851 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:54,134 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:15:55,866 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:57,896 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:15:59,161 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:15:59,908 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:01,920 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:03,948 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:04,185 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:04,948 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\config.yaml
+2023-12-12 07:16:05,274 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:16:05,274 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:16:05,285 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:16:05,952 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:07,963 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:09,445 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:09,995 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:12,004 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:14,028 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:14,468 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:16,055 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:18,082 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:19,490 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:20,090 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:20,267 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:16:20,268 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:16:20,280 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:16:22,109 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:24,138 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:24,516 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:26,164 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:28,190 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:29,531 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:30,210 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:32,229 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:34,255 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:34,552 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:34,907 DEBUG   SystemMonitor:19452 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-12-12 07:16:34,908 DEBUG   SenderThread:19452 [sender.py:send():382] send: stats
+2023-12-12 07:16:35,267 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:16:35,267 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:16:35,297 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:16:36,280 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:38,295 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:39,581 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:40,309 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:42,334 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:44,347 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:44,601 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:46,373 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:48,387 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:49,618 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:50,273 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:16:50,274 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:16:50,301 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:16:50,408 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:52,437 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:54,465 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:54,640 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:16:56,487 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:58,510 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:16:59,654 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:00,527 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:02,547 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:04,563 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:04,676 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:04,909 DEBUG   SenderThread:19452 [sender.py:send():382] send: stats
+2023-12-12 07:17:05,270 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:17:05,271 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:17:05,317 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:17:06,580 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:08,610 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:09,700 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:10,636 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:12,638 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:14,666 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:14,731 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:16,686 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:18,691 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:19,773 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:20,279 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:17:20,279 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:17:20,326 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:17:20,718 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:22,747 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:24,767 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:24,786 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:26,783 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:28,798 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:29,812 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:30,811 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:32,816 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:34,843 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:34,878 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:34,924 DEBUG   SenderThread:19452 [sender.py:send():382] send: stats
+2023-12-12 07:17:35,285 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:17:35,285 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:17:35,333 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:17:36,860 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:38,872 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:39,906 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:40,886 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:42,904 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:44,934 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:44,937 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:46,959 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:48,971 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:49,973 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:50,302 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:17:50,302 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:17:50,345 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:17:51,000 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:53,015 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:54,999 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:17:55,043 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:57,054 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:17:59,070 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:00,025 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:18:01,097 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:03,127 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:04,933 DEBUG   SenderThread:19452 [sender.py:send():382] send: stats
+2023-12-12 07:18:05,045 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:18:05,152 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:05,309 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-12 07:18:05,309 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: stop_status
+2023-12-12 07:18:05,357 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:18:07,170 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:09,192 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:10,067 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:18:11,217 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:13,244 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:15,095 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:18:15,253 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:16,523 DEBUG   SenderThread:19452 [sender.py:send():382] send: telemetry
+2023-12-12 07:18:16,557 DEBUG   SenderThread:19452 [sender.py:send():382] send: exit
+2023-12-12 07:18:16,557 INFO    SenderThread:19452 [sender.py:send_exit():589] handling exit code: 1
+2023-12-12 07:18:16,557 INFO    SenderThread:19452 [sender.py:send_exit():591] handling runtime: 161
+2023-12-12 07:18:16,558 INFO    SenderThread:19452 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-12 07:18:16,558 INFO    SenderThread:19452 [sender.py:send_exit():597] send defer
+2023-12-12 07:18:16,558 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:16,558 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 0
+2023-12-12 07:18:16,558 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:16,559 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 0
+2023-12-12 07:18:16,559 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 1
+2023-12-12 07:18:16,559 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:16,559 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 1
+2023-12-12 07:18:16,559 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:16,559 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 1
+2023-12-12 07:18:16,559 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 2
+2023-12-12 07:18:16,559 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:16,559 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 2
+2023-12-12 07:18:16,559 INFO    HandlerThread:19452 [system_monitor.py:finish():203] Stopping system monitor
+2023-12-12 07:18:16,559 DEBUG   SystemMonitor:19452 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-12-12 07:18:16,571 DEBUG   SystemMonitor:19452 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-12-12 07:18:16,572 INFO    HandlerThread:19452 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-12 07:18:16,593 INFO    HandlerThread:19452 [interfaces.py:finish():202] Joined disk monitor
+2023-12-12 07:18:16,680 INFO    HandlerThread:19452 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-12 07:18:16,681 INFO    HandlerThread:19452 [interfaces.py:finish():202] Joined memory monitor
+2023-12-12 07:18:16,681 INFO    HandlerThread:19452 [interfaces.py:finish():202] Joined network monitor
+2023-12-12 07:18:16,681 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:16,681 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 2
+2023-12-12 07:18:16,681 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 3
+2023-12-12 07:18:16,682 DEBUG   SenderThread:19452 [sender.py:send():382] send: stats
+2023-12-12 07:18:16,682 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:16,682 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 3
+2023-12-12 07:18:16,682 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:16,682 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 3
+2023-12-12 07:18:16,682 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 4
+2023-12-12 07:18:16,682 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:16,683 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 4
+2023-12-12 07:18:17,265 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:17,266 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\wandb-summary.json
+2023-12-12 07:18:19,287 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:22,313 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-12 07:18:22,313 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:18:22,314 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:22,314 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 4
+2023-12-12 07:18:22,314 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 5
+2023-12-12 07:18:22,314 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: poll_exit
+2023-12-12 07:18:22,314 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:22,314 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 5
+2023-12-12 07:18:22,314 DEBUG   SenderThread:19452 [sender.py:send():382] send: summary
+2023-12-12 07:18:22,315 INFO    SenderThread:19452 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-12 07:18:22,315 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:22,315 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 5
+2023-12-12 07:18:22,315 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 6
+2023-12-12 07:18:22,315 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:22,315 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 6
+2023-12-12 07:18:22,316 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:22,316 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 6
+2023-12-12 07:18:22,318 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: status_report
+2023-12-12 07:18:22,498 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 7
+2023-12-12 07:18:22,499 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:22,499 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 7
+2023-12-12 07:18:22,499 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:22,499 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 7
+2023-12-12 07:18:22,613 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: keepalive
+2023-12-12 07:18:23,328 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\wandb-summary.json
+2023-12-12 07:18:23,328 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\config.yaml
+2023-12-12 07:18:24,452 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 8
+2023-12-12 07:18:24,452 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:24,452 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 8
+2023-12-12 07:18:24,452 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:24,452 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 8
+2023-12-12 07:18:24,452 INFO    SenderThread:19452 [job_builder.py:build():298] Attempting to build job artifact
+2023-12-12 07:18:24,453 INFO    SenderThread:19452 [job_builder.py:_get_source_type():428] is repo sourced job
+2023-12-12 07:18:24,530 INFO    SenderThread:19452 [job_builder.py:build():404] adding wandb-job metadata file
+2023-12-12 07:18:24,535 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 9
+2023-12-12 07:18:24,535 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:24,535 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 9
+2023-12-12 07:18:24,535 DEBUG   SenderThread:19452 [sender.py:send():382] send: artifact
+2023-12-12 07:18:25,356 INFO    Thread-16 :19452 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:25,833 INFO    wandb-upload_0:19452 [upload_job.py:push():89] Uploaded file C:\Users\deanv\AppData\Local\wandb\wandb\artifacts\staging\tmpjz1aahhs
+2023-12-12 07:18:25,851 INFO    wandb-upload_1:19452 [upload_job.py:push():89] Uploaded file C:\Users\deanv\AppData\Local\wandb\wandb\artifacts\staging\tmpvv8o4sv4
+2023-12-12 07:18:26,921 INFO    SenderThread:19452 [sender.py:send_artifact():1470] sent artifact job-https___github.com_Deanis_OT2_Twin.git_ot2_sb3.py - {'id': 'QXJ0aWZhY3Q6NjY0NzUwMzkw', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMjkyNDEwMw==', 'latestArtifact': None}}
+2023-12-12 07:18:26,922 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:26,922 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 9
+2023-12-12 07:18:26,922 INFO    SenderThread:19452 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-12-12 07:18:27,370 INFO    SenderThread:19452 [dir_watcher.py:finish():388] scan: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files
+2023-12-12 07:18:27,370 INFO    SenderThread:19452 [dir_watcher.py:finish():402] scan save: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\conda-environment.yaml conda-environment.yaml
+2023-12-12 07:18:27,370 INFO    SenderThread:19452 [dir_watcher.py:finish():402] scan save: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\config.yaml config.yaml
+2023-12-12 07:18:27,370 INFO    SenderThread:19452 [dir_watcher.py:finish():402] scan save: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log output.log
+2023-12-12 07:18:27,372 INFO    SenderThread:19452 [dir_watcher.py:finish():402] scan save: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\requirements.txt requirements.txt
+2023-12-12 07:18:27,373 INFO    SenderThread:19452 [dir_watcher.py:finish():402] scan save: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\wandb-metadata.json wandb-metadata.json
+2023-12-12 07:18:27,374 INFO    SenderThread:19452 [dir_watcher.py:finish():402] scan save: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\wandb-summary.json wandb-summary.json
+2023-12-12 07:18:27,375 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 10
+2023-12-12 07:18:27,377 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:27,377 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 10
+2023-12-12 07:18:27,379 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:27,379 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 10
+2023-12-12 07:18:27,379 INFO    SenderThread:19452 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-12 07:18:27,650 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: keepalive
+2023-12-12 07:18:27,757 INFO    wandb-upload_0:19452 [upload_job.py:push():131] Uploaded file C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\config.yaml
+2023-12-12 07:18:27,813 INFO    wandb-upload_1:19452 [upload_job.py:push():131] Uploaded file C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\output.log
+2023-12-12 07:18:27,867 INFO    wandb-upload_3:19452 [upload_job.py:push():131] Uploaded file C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\wandb-summary.json
+2023-12-12 07:18:27,884 INFO    wandb-upload_2:19452 [upload_job.py:push():131] Uploaded file C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\files\requirements.txt
+2023-12-12 07:18:28,099 INFO    Thread-15 (_thread_body):19452 [sender.py:transition_state():617] send defer: 11
+2023-12-12 07:18:28,099 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:28,099 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 11
+2023-12-12 07:18:28,100 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:28,100 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 11
+2023-12-12 07:18:28,100 INFO    SenderThread:19452 [file_pusher.py:join():181] waiting for file pusher
+2023-12-12 07:18:28,100 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 12
+2023-12-12 07:18:28,100 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:28,100 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 12
+2023-12-12 07:18:28,100 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:28,101 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 12
+2023-12-12 07:18:28,101 INFO    SenderThread:19452 [file_stream.py:finish():595] file stream finish called
+2023-12-12 07:18:28,263 INFO    SenderThread:19452 [file_stream.py:finish():599] file stream finish is done
+2023-12-12 07:18:28,263 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 13
+2023-12-12 07:18:28,263 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:28,263 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 13
+2023-12-12 07:18:28,263 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:28,263 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 13
+2023-12-12 07:18:28,263 INFO    SenderThread:19452 [sender.py:transition_state():617] send defer: 14
+2023-12-12 07:18:28,263 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: defer
+2023-12-12 07:18:28,263 DEBUG   SenderThread:19452 [sender.py:send():382] send: final
+2023-12-12 07:18:28,263 INFO    HandlerThread:19452 [handler.py:handle_request_defer():172] handle defer: 14
+2023-12-12 07:18:28,263 DEBUG   SenderThread:19452 [sender.py:send():382] send: footer
+2023-12-12 07:18:28,264 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: defer
+2023-12-12 07:18:28,264 INFO    SenderThread:19452 [sender.py:send_request_defer():613] handle sender defer: 14
+2023-12-12 07:18:28,264 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-12 07:18:28,264 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: server_info
+2023-12-12 07:18:28,264 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: get_summary
+2023-12-12 07:18:28,264 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: poll_exit
+2023-12-12 07:18:28,264 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: sampled_history
+2023-12-12 07:18:28,265 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: server_info
+2023-12-12 07:18:28,265 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-12 07:18:28,266 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: job_info
+2023-12-12 07:18:28,391 DEBUG   SenderThread:19452 [sender.py:send_request():409] send_request: job_info
+2023-12-12 07:18:28,391 INFO    MainThread:19452 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2023-12-12 07:18:28,391 INFO    MainThread:19452 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2023-12-12 07:18:28,391 INFO    MainThread:19452 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2023-12-12 07:18:28,394 DEBUG   HandlerThread:19452 [handler.py:handle_request():146] handle_request: shutdown
+2023-12-12 07:18:28,394 INFO    HandlerThread:19452 [handler.py:finish():866] shutting down handler
+2023-12-12 07:18:29,268 INFO    WriterThread:19452 [datastore.py:close():294] close: C:\Users\deanv\Dropbox\0_Buas\2023-2024\y2B\OT2_Twin\wandb\run-20231212_071533-p4oc3crj\run-p4oc3crj.wandb
+2023-12-12 07:18:29,395 INFO    SenderThread:19452 [sender.py:finish():1548] shutting down sender
+2023-12-12 07:18:29,395 INFO    SenderThread:19452 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-12 07:18:29,395 INFO    SenderThread:19452 [file_pusher.py:join():181] waiting for file pusher

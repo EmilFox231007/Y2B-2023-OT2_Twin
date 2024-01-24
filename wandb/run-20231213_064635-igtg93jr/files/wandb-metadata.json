@@ -1,0 +1,53 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.10.13",
+    "heartbeatAt": "2023-12-13T05:46:36.164231",
+    "startedAt": "2023-12-13T05:46:35.436054",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\deanv\\Dropbox\\0_Buas\\2023-2024\\y2B\\OT2_Twin\\ot2_sb3.py",
+    "codePathLocal": "ot2_sb3.py",
+    "codePath": "ot2_sb3.py",
+    "git": {
+        "remote": "https://github.com/Deanis/OT2_Twin.git",
+        "commit": "4cda32dbe471abf2947faf2d775c2aac9fa38bd0"
+    },
+    "email": "53308143+Deanis@users.noreply.github.com",
+    "root": "C:/Users/deanv/Dropbox/0_Buas/2023-2024/y2B/OT2_Twin",
+    "host": "Dean-Omen",
+    "username": "deanv",
+    "executable": "C:\\ProgramData\\anaconda3\\envs\\y2b\\python.exe",
+    "cpu_count": 16,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2100.0,
+        "min": 0.0,
+        "max": 2100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2100.0,
+            "min": 0.0,
+            "max": 2100.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 952.9697227478027,
+            "used": 826.2067108154297
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "memory_total": 8585740288
+        }
+    ],
+    "memory": {
+        "total": 31.70067596435547
+    }
+}
