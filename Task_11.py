@@ -9,10 +9,12 @@ from ot2_gym_wrapper import OT2Env  # Custom environment wrapper
 from clearml import Task  # Import ClearML's Task
 import typing_extensions
 
+env = OT2Env(render=False)
+
 # Initialize ClearML Task
 task = Task.init(
     project_name="Mentor Group S/Group 3",  # Replace with your project name
-    task_name="Batch Size Search Experiment",
+    task_name="RL_train_group_3",
 )
 task.set_base_docker("deanis/2023y2b-rl:latest")  # Set the base docker image
 task.execute_remotely(queue_name="default")  # Execute remotely on the default queue
@@ -27,10 +29,8 @@ parser.add_argument("--n_epochs", type=int, default=10)
 
 args = parser.parse_args()
 
-env = OT2Env()
-
 # initialize wandb project
-run = wandb.init(project="Task11-RL",sync_tensorboard=True)
+run = wandb.init(project="Task11-RL", sync_tensorboard=True)
 
 # create wandb callback
 wandb_callback = WandbCallback(model_save_freq=1000,
