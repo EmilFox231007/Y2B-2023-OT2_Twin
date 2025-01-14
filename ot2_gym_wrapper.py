@@ -21,7 +21,7 @@ class OT2Env(gym.Env):
         # keep track of the number of steps
         self.steps = 0
 
-    def reset(self, seed=None):
+    def reset(self, render=False, seed=None):
             # being able to set a seed is required for reproducibility
             if seed is not None:
                 np.random.seed(seed)
