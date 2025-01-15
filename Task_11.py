@@ -3,59 +3,61 @@ import argparse
 from stable_baselines3 import PPO
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.vec_env import DummyVecEnv
-from wandb.integration.sb3 import WandbCallback
-import wandb
 from ot2_gym_wrapper import OT2Env  # Custom environment wrapper
-from clearml import Task  # Import ClearML's Task
-import typing_extensions
+import wandb
+from wandb.integration.sb3 import WandbCallback
 
-env = OT2Env(render=False)
-
-# Initialize ClearML Task
-task = Task.init(
-    project_name="Mentor Group S/Group 3",  # Replace with your project name
-    task_name="RL_train_group_3",
-)
-task.set_base_docker("deanis/2023y2b-rl:latest")  # Set the base docker image
-task.execute_remotely(queue_name="default")  # Execute remotely on the default queue
-
-os.environ['WANDB_API_KEY'] = 'ad7961aa16de00343e0cd159062e4c79502f7184'
+# Set up the environment
+env = OT2Env()
+env = Monitor(env)
+env = DummyVecEnv([lambda: env])
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--learning_rate", type=float, default=0.0001)
 parser.add_argument("--batch_size", type=int, default=128)
 parser.add_argument("--n_steps", type=int, default=2048)
 parser.add_argument("--n_epochs", type=int, default=10)
-
 args = parser.parse_args()
 
-# initialize wandb project
-run = wandb.init(project="Task11-RL", sync_tensorboard=True)
+# Set up Weights & Biases
+wandb.init(project="Task11-RL", sync_tensorboard=True)
+wandb.config.update({
+    "learning_rate": args.learning_rate,
+    "batch_size": args.batch_size,
+    "n_steps": args.n_steps,
+    "n_epochs": args.n_epochs
+})
 
-# create wandb callback
-wandb_callback = WandbCallback(model_save_freq=1000,
-                                model_save_path=f"models/{run.id}",
-                                verbose=2,
-                                )
+# Create a W&B callback for logging
+wandb_callback = WandbCallback(
+    model_save_freq=1000,
+    model_save_path=f"models/{wandb.run.id}",
+    verbose=2,
+)
 
+# Initialize the model
 model = PPO('MlpPolicy', env, verbose=1, 
             learning_rate=args.learning_rate, 
             batch_size=args.batch_size, 
             n_steps=args.n_steps, 
             n_epochs=args.n_epochs, 
-            tensorboard_log=f"runs/{run.id}",)
+            tensorboard_log=f"runs/{wandb.run.id}")
 
 # Total timesteps for training
-time_steps = 100000
+total_timesteps = 100000
 
-save_interval = 5
+# Define a directory to save the models locally
+model_dir = f"models/{wandb.run.id}"
+os.makedirs(model_dir, exist_ok=True)
 
+# Training loop
 for i in range(10):
-    # add the reset_num_timesteps=False argument to the learn function to prevent the model from resetting the timestep counter
-    # add the tb_log_name argument to the learn function to log the tensorboard data to the correct folder
-    model.learn(total_timesteps=time_steps, callback=wandb_callback, progress_bar=True, reset_num_timesteps=False,tb_log_name=f"runs/{run.id}")
-    # save the model to the models folder with the run id and the current timestep
-    if (i + 1) % save_interval == 0 or (i + 1) == 10:
-        model.save(f"models/{run.id}/{time_steps * (i + 1)}")
+    # Train the model and save locally
+    model.learn(total_timesteps=total_timesteps, callback=wandb_callback, reset_num_timesteps=False, tb_log_name=f"runs/{wandb.run.id}")
+    
+    # Save the model every 5 iterations or on the last iteration
+    if (i + 1) % 5 == 0 or (i + 1) == 10:
+        model.save(f"{model_dir}/model_{total_timesteps * (i + 1)}.zip")
 
-    #model.save(f"models/{run.id}/{time_steps*(i+1)}")
+wandb.finish()
+print("Training completed!")
