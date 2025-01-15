@@ -9,7 +9,7 @@ from ot2_gym_wrapper import OT2Env  # Custom environment wrapper
 from clearml import Task  # Import ClearML's Task
 import typing_extensions
 
-env = OT2Env()
+env = OT2Env(render=False)
 
 # Initialize ClearML Task
 task = Task.init(

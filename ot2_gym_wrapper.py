@@ -9,9 +9,6 @@ class OT2Env(gym.Env):
         super(OT2Env, self).__init__()
         self.max_steps = max_steps
         
-        if not self.render:
-            self.physicsClient = p.connect(p.DIRECT)
-        
         # Create the simulation environment
         self.sim = Simulation(num_agents=1)
 
