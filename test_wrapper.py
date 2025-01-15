@@ -5,7 +5,7 @@ import gymnasium as gym
 import numpy as np
 
 # Load your custom environment
-env = OT2Env(render=False)  # Assuming you want rendering enabled. Set to False if not.
+env = OT2Env()  # Assuming you want rendering enabled. Set to False if not.
 
 # Number of episodes
 num_episodes = 5
