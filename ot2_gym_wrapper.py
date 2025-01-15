@@ -17,7 +17,7 @@ class OT2Env(gym.Env):
         # They must be gym.spaces objects
         self.action_space = spaces.Box(low=np.array([-1, -1, -1]), high=np.array([1, 1, 1]), shape=(3,), dtype=np.float32)
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(6,), dtype=np.float32)
-        self.goal_space = spaces.Box(low=np.array([-0.187, -0.171, -0.170]), high=np.array([0.254, 0.220, 0.291]), shape=(3,), dtype=np.float32)
+        self.goal_space = spaces.Box(low=np.array([-0.1904, -0.1712, -0.1205]), high=np.array([0.255, 0.2203, 0.2906]), shape=(3,), dtype=np.float32)
         # keep track of the number of steps
         self.steps = 0
 
