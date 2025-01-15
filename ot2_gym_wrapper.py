@@ -7,6 +7,7 @@ import pybullet as p
 class OT2Env(gym.Env):
     def __init__(self, render=False, max_steps=1000):
         super(OT2Env, self).__init__()
+        self.render = render
         self.max_steps = max_steps
         
         # Create the simulation environment
@@ -20,7 +21,7 @@ class OT2Env(gym.Env):
         # keep track of the number of steps
         self.steps = 0
 
-    def reset(self, render=False, seed=None):
+    def reset(self, seed=None):
             # being able to set a seed is required for reproducibility
             if seed is not None:
                 np.random.seed(seed)
@@ -94,9 +95,7 @@ class OT2Env(gym.Env):
         self.steps += 1
 
         return observation, reward, terminated, truncated, info 
-    def render(self, mode='direct'):
-        if self.render:
-            print("Rendering the environment...")
+    def render(self, mode='human'):
         pass
     
     def close(self):
