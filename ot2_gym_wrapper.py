@@ -7,7 +7,6 @@ import pybullet as p
 class OT2Env(gym.Env):
     def __init__(self, render=False, max_steps=1000):
         super(OT2Env, self).__init__()
-        self.render = render
         self.max_steps = max_steps
         
         if not self.render:
