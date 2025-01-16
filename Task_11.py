@@ -23,7 +23,7 @@ os.environ['WANDB_API_KEY'] = 'ad7961aa16de00343e0cd159062e4c79502f7184'
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--learning_rate", type=float, default=0.0001)
-parser.add_argument("--batch_size", type=int, default=128)
+parser.add_argument("--batch_size", type=int, default=64)
 parser.add_argument("--n_steps", type=int, default=2048)
 parser.add_argument("--n_epochs", type=int, default=10)
 
@@ -46,7 +46,7 @@ model = PPO('MlpPolicy', env, verbose=1,
             tensorboard_log=f"runs/{run.id}",)
 
 # Total timesteps for training
-time_steps = 2000000
+time_steps = 500000
 
 save_interval = 5
 
