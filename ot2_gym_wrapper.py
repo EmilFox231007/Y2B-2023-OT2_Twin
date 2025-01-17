@@ -5,7 +5,7 @@ from sim_class import Simulation
 import pybullet as p
 
 class OT2Env(gym.Env):
-    def __init__(self, render=False, max_steps=1000):
+    def __init__(self, render=True, max_steps=1000):
         super(OT2Env, self).__init__()
         self.render = render
         self.max_steps = max_steps
@@ -28,13 +28,12 @@ class OT2Env(gym.Env):
     def reset(self, seed=None):
         if seed is not None:
             np.random.seed(seed)
-        self.goal_position = self.goal_space.sample()
-        goal_position = np.array(self.goal_position, dtype=np.float32)
+        self.goal_position = np.array(self.goal_space.sample(), dtype=np.float32)  # Ensure goal is an array
         observation = self.sim.reset(num_agents=1)
         robot_id = list(observation.keys())[0]
         robot_id_str = robot_id.replace("robotId_", "")
-        pipette_position = self.sim.get_pipette_position(int(robot_id_str))
-        observation = np.concatenate([pipette_position, goal_position])
+        pipette_position = np.array(self.sim.get_pipette_position(int(robot_id_str)), dtype=np.float32)  # Ensure array
+        observation = np.concatenate([pipette_position, self.goal_position])
         self.steps = 0
         info = {'message': 'Reset successful'}
         return observation, info
