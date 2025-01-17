@@ -5,7 +5,7 @@ from sim_class import Simulation
 import pybullet as p
 
 class OT2Env(gym.Env):
-    def __init__(self, render=True, max_steps=1000):
+    def __init__(self, render=False, max_steps=1000):
         super(OT2Env, self).__init__()
         self.render = render
         self.max_steps = max_steps
@@ -38,13 +38,14 @@ class OT2Env(gym.Env):
         info = {'message': 'Reset successful'}
         return observation, info
 
+
     def step(self, action):
         action = np.append(action, [0])
         observation = self.sim.run([action])
         robot_id = list(observation.keys())[0]
         robot_id_str = robot_id.replace("robotId_", "")
-        pipette_position = self.sim.get_pipette_position(int(robot_id_str))
-        goal_position = np.array(self.goal_position, dtype=np.float32)
+        pipette_position = np.array(self.sim.get_pipette_position(int(robot_id_str)), dtype=np.float32)  # Ensure array
+        goal_position = np.array(self.goal_position, dtype=np.float32)  # Ensure array
         observation = np.concatenate([pipette_position, goal_position])
         reward = self.calculate_reward(pipette_position, goal_position)
         distance = np.linalg.norm(pipette_position - goal_position)
@@ -53,6 +54,7 @@ class OT2Env(gym.Env):
         reward -= 1  # Step penalty
         self.steps += 1
         return observation, reward, terminated, truncated, {}
+
 
     def render(self, mode='human'):
         pass
