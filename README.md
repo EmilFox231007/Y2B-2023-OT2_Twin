@@ -47,7 +47,7 @@ Uses a trained RL model (`Astra_V3.0.zip`) to control the pipette's movement. Th
 To run the simulation with a PID controller:
 
 ```bash
-python pid_control.py
+python Task_13.py
 ```
 
 This script will:
