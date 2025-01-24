@@ -29,8 +29,8 @@ goal_position = (root_tip_mm + plate_position_robot) / 1000  # Convert mm to met
 print(f"Moving to calculated root tip goal: {goal_position}")
 
 # ✅ Improved PID Controllers with stronger control
-pid_x = PID(50.0, 0., 0, setpoint=goal_position[0])  # Increased Kp, Ki, Kd
-pid_y = PID(50.0, 0, 0, setpoint=goal_position[1])
+pid_x = PID(100.0, 0., 0, setpoint=goal_position[0])  # Increased Kp, Ki, Kd
+pid_y = PID(100.0, 0, 0, setpoint=goal_position[1])
 pid_z = PID(50.0, 0, 0, setpoint=goal_position[2])
 
 # ✅ Increase output limits for better movement speed

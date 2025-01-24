@@ -49,7 +49,7 @@ class OT2Env(gym.Env):
     def step(self, action):
         """Execute one time step within the environment."""
         # Scale first, then append drop action
-        scaled_action = np.clip(action * np.array([0.5, 0.5, 0.3]), -1.0, 1.0)
+        scaled_action = np.clip(action * np.array([0.5, 0.5, 0.3, 1.0]), -1.0, 1.0)
         
         # Now append 0 for the drop action
         scaled_action = np.append(scaled_action, 0)
