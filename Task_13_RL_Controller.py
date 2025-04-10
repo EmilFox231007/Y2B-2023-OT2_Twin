@@ -68,8 +68,8 @@ def move_to_goal(env, goal_position, run_index, pipette_position, drop=False, la
 
     print(f"\nRun {run_index + 1}: Moving from {pipette_position} to goal {goal_position}")
 
-    # Define stopping condition
-    error_threshold = 0.005
+    # Define stopping threshold
+    error_threshold = 0.001
 
     # Main control loop
     for step in range(300):
@@ -77,7 +77,7 @@ def move_to_goal(env, goal_position, run_index, pipette_position, drop=False, la
         action, _ = model.predict(obs, deterministic=True)
         action = np.clip(action, -1.0, 1.0)
 
-        # Extract control values for XYZ
+        # Extracting control values for XYZ
         if action.shape[0] >= 3:
             x_action, y_action, z_action = action[:3]
         else:

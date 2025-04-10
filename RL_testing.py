@@ -5,7 +5,6 @@ from ot2_gym_wrapper import OT2Env
 # Reproducibility
 np.random.seed(42)
 
-# Log file path
 log_file_path = "evaluation_output.txt"
 
 # Load model
