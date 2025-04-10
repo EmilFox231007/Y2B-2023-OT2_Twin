@@ -14,14 +14,14 @@ GOAL_SPACE_HIGH = np.array([0.255, 0.2203, 0.2906])
 def move_to_goal(env, goal_position, run_index, pipette_position):
     """ Move the pipette to a goal using PID controllers. """
 
-    print(f"\n🔹 Run {run_index + 1}: Moving from {pipette_position} to goal {goal_position}")
+    print(f"{run_index + 1}: Moving from {pipette_position} to goal {goal_position}")
 
     # setting up the PID controllers for each axis with optimized gains
     pid_x = PID(200.0, 0.15, 10.0, setpoint=goal_position[0], output_limits=(-1, 1))
     pid_y = PID(200.0, 0.15, 10.0, setpoint=goal_position[1], output_limits=(-1, 1))
     pid_z = PID(150.0, 0.1, 8.0, setpoint=goal_position[2], output_limits=(-1, 1))
 
-    # defining the error threshold for termination
+    # definingthe error threshold for termination
     error_threshold = 0.0003  
 
     # tracking pipette movement data over time
@@ -66,7 +66,7 @@ def move_to_goal(env, goal_position, run_index, pipette_position):
 
         # terminating early if within acceptable error range
         if distance < error_threshold:
-            print(f"✅ Goal {goal_position} reached in {step} steps!")
+            print(f"{goal_position} reached in {step} steps")
             return pipette_position, time_steps, x_positions, y_positions, z_positions, setpoint_x, setpoint_y, setpoint_z
 
     print(f"{run_index + 1} complete.")
