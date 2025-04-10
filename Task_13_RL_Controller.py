@@ -69,7 +69,7 @@ def move_to_goal(env, goal_position, run_index, pipette_position, drop=False, la
     print(f"\nRun {run_index + 1}: Moving from {pipette_position} to goal {goal_position}")
 
     # Define stopping threshold
-    error_threshold = 0.001
+    error_threshold = 0.005
 
     # Main control loop
     for step in range(300):
