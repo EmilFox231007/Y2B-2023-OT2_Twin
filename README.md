@@ -57,6 +57,14 @@ This script will:
 3. Move to predefined root locations.
 4. Generate performance plots for position tracking.
 
+### Running the Simulation with RL Control
+
+To run the simulation with a RL controller:
+
+```bash
+python Task_13_RL_Controller.py
+```
+
 ## Robot Environment Details
 
 - **Action Space:**
@@ -66,4 +74,8 @@ This script will:
 - **Goal Space:**
   - 3D Cartesian space within `[-0.1904, -0.1712, -0.1205]` to `[0.255, 0.2203, 0.2906]`.
 
+## Hyperparameters used for final model
 
+- **Batch Size:** 128
+- **Learning Rate:** Linear schedule (0.1) this means that it decays overtime 
+- **Time Steps:** 1.000.000
